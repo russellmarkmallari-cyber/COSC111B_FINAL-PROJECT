@@ -1,0 +1,52 @@
+#define THERMISTOR_PIN A0
+#define LED_PIN 8
+
+const float SERIES_RESISTOR = 10000.0;
+const float BETA = 3950.0;
+const float ROOM_TEMP = 298.15;
+const float TEMP_THRESHOLD = 50.0;
+
+bool isBlinking = false;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.println("System ready. Monitoring temperature...");
+}
+
+void loop() {
+  int analogValue = analogRead(THERMISTOR_PIN);
+  if (analogValue <= 0) analogValue = 1; 
+
+  float resistance = (1023.0 / analogValue - 1) * SERIES_RESISTOR;
+  if (resistance <= 0) resistance = 0.0001; 
+
+  float temperatureC = 1 / (log(resistance / SERIES_RESISTOR) / BETA + 1.0 / ROOM_TEMP) - 273.15;
+
+  Serial.print("Temperature: ");
+  Serial.print(temperatureC);
+  Serial.println(" °C");
+
+  if (temperatureC >= TEMP_THRESHOLD) {
+    isBlinking = true;
+  }
+
+  if (Serial.available() > 0) {
+    String command = Serial.readStringUntil('\n');
+    command.trim();
+    if (command.equalsIgnoreCase("stop")) {
+      isBlinking = false;
+      digitalWrite(LED_PIN, LOW);
+      Serial.println("Blinking stopped.");
+    }
+  }
+
+  if (isBlinking) {
+    digitalWrite(LED_PIN, HIGH);
+    delay(100);
+    digitalWrite(LED_PIN, LOW);
+    delay(100);
+  } else {
+    delay(500);
+  }
+}
