@@ -189,6 +189,8 @@ Integrates physical Arduino buttons with external API endpoints for remote LED c
 - Update the COM port in Python scripts to match your system configuration.
 - Ensure all required Python libraries (e.g., `pyserial`, `fastapi`) are installed before running scripts.
   
+#Configuration
+- Update these values in LabExam_Finals.py
 SERIAL_PORT = "COM5"                #Your Arduino COM port
 
 API_BASE_URL = "BASE_API"           #Your API server URL
