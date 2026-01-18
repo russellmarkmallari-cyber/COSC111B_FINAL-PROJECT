@@ -135,7 +135,7 @@ Demonstrates full-duplex communication where Arduino buttons and Python commands
 **Files:**
 - `Laboratory_6.ino`  
 - `Laboratory_6.py`  
-- `ledheader.h`  
+- `ledheader.h(1)`  
 - `Laboratory_6.png`
 
 ---
@@ -154,7 +154,7 @@ Web-based LED control using FastAPI and Serial communication with Arduino.
 **Files:**
 - `Laboratory_7.ino`  
 - `Laboratory_7.py`  
-- `ledheader.h`  
+- `ledheader.h(2)`  
 - `Laboratory_7.png`
 
 ---
@@ -162,18 +162,18 @@ Web-based LED control using FastAPI and Serial communication with Arduino.
 ## Laboratory Examinations
 
 ### Midterm Examination – Adaptive Light Sensor System
-**Folder:** `LabExam_Midterms/`
+**Folder:** `MidtermLaboratory/`
 
 **Description:**  
 An advanced light-monitoring system with automatic and manual modes and adjustable thresholds.
 
 **Files:**
-- `LabExam_Midterms.ino`
+- `MidtermLaboratory.ino`
 
 ---
 
 ### Final Examination – API Button Integration
-**Folder:** `LabExam_Finals/`
+**Folder:** `FinalsLaboratory/`
 
 **Description:**  
 Integrates physical Arduino buttons with external API endpoints for remote LED control.
@@ -189,10 +189,10 @@ Integrates physical Arduino buttons with external API endpoints for remote LED c
 - Update the COM port in Python scripts to match your system configuration.
 - Ensure all required Python libraries (e.g., `pyserial`, `fastapi`) are installed before running scripts.
   
-SERIAL_PORT = "COM5"              # Your Arduino COM port
+SERIAL_PORT = "COM5"                #Your Arduino COM port
 
-API_BASE_URL = "BASE_API"         # Your API server URL
+API_BASE_URL = "BASE_API"           #Your API server URL
 
-GROUP_NUMBER = "1"                # Button-to-group mapping
+GROUP_NUMBER = "1"                  #Button-to-group mapping
 
 
