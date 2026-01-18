@@ -80,7 +80,7 @@ A dual-sensor fire detection system using temperature and light intensity measur
 - Modular programming  
 
 **Files:**
-- `LabAct_3_CODE.ino`  
+- `Laboratory_4.ino`  
 - `Laboratory#3.png`
 
 ---
